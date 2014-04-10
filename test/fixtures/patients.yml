@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  age: MyInteger
+  status: MyInteger
+  reason: MyInteger
+  surgery: MyInteger
+  recommendation: MyInteger
+
+two:
+  age: MyInteger
+  status: MyInteger
+  reason: MyInteger
+  surgery: MyInteger
+  recommendation: MyInteger
