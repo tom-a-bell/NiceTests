@@ -107,7 +107,7 @@ GEM
       json (>= 1.8.0)
 
 PLATFORMS
-  ruby
+  ruby (~> 1.9.3)
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
