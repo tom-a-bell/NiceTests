@@ -1,7 +1,6 @@
 <div class="container theme-showcase" role="main">
-
   <div class="page-header">
-    <h1>Pre-operative tests</h1>
+    <h1>Preoperative Tests</h1>
   </div>
 
   <%= render "options" %>
@@ -14,7 +13,6 @@
         <th></th>
       </tr>
     </thead>
-
     <tbody>
       <% @recommend.each do |test| %>
         <tr class="success">
@@ -22,7 +20,6 @@
           <td><%= test.description %></td>
         </tr>
       <% end %>
-
       <% @consider.each do |test| %>
         <tr class="warning">
           <td><strong><%= test.name %></strong></td>
@@ -31,12 +28,4 @@
       <% end %>
     </tbody>
   </table>
-
-</div> <!-- /container -->
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="../../assets/javascripts/bootstrap.min.js"></script>
+</div>
