@@ -19,5 +19,21 @@ module Nicetests
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # Add components installed by Bower to the precompile load path.
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+
+    # Register the extensions for files that are to be precompiled.
+    # Exclude the default of everything that isn't JavaScript or CSS.
+    config.assets.precompile.shift
+
+    # Explicitly register the extensions we are interested in compiling.
+    config.assets.precompile.push(Proc.new do |path|
+      File.extname(path).in? [
+        '.html', '.erb', '.haml',                 # Templates
+        '.png',  '.gif', '.jpg', '.jpeg', '.svg', # Images
+        '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
+      ]
+    end)
   end
 end
