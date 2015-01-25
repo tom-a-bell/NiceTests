@@ -1,6 +1,8 @@
 Nicetests::Application.routes.draw do
 
-  resources :tests
+  resources :tests, :operations
+
+  get 'specialties/' => 'operations#specialties'
 
   post 'results/' => 'tests#results'
 
