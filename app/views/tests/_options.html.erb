@@ -6,7 +6,7 @@
 </div>
 
 <div class="row">
-    <%= form.association :surgery, label: 'Surgery' %>
+    <%= render 'surgery' %>
     <%= form.association :reason,  as: :radio_buttons, label: 'Reason for ASA Grade' %>
 </div>
 
