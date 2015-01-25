@@ -11,13 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409102418) do
+ActiveRecord::Schema.define(version: 20150124133800) do
+
+  create_table "age_groups", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "asa_grades", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "patients", force: true do |t|
-    t.integer  "age"
-    t.integer  "status"
-    t.integer  "reason"
-    t.integer  "surgery"
+    t.integer  "age_group_id"
+    t.integer  "asa_grade_id"
+    t.integer  "reason_id"
+    t.integer  "surgery_id"
     t.integer  "recommendation"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -26,6 +40,20 @@ ActiveRecord::Schema.define(version: 20140409102418) do
   create_table "patients_tests", id: false, force: true do |t|
     t.integer "patient_id"
     t.integer "test_id"
+  end
+
+  create_table "reasons", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "surgeries", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tests", force: true do |t|
