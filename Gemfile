@@ -52,3 +52,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use Simple Form for rendering forms
+gem 'simple_form'

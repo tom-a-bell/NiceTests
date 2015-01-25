@@ -1,32 +1,20 @@
 class TestsController < ApplicationController
 
   def index
-    @current_age = session[:age]
-    @current_status = session[:status]
-    @current_reason = session[:reason]
-    @current_surgery = session[:surgery]
-
-    if params[:sort] != session[:sort]
-      session[:sort] = sort
-      flash.keep
-      redirect_to :sort => sort, :ratings => @selected_ratings and return
-    end
+    @patient = Patient.new
   end
 
   def results
-    options = params[:results]
+    patient_options = params[:patient]
 
-    @current_age = options[:age]
-    @current_status = options[:status]
-    @current_reason = options[:reason]
-    @current_surgery = options[:surgery]
-
-    if options[:status] == '1' or options[:reason] == nil
-      options[:reason] = '0'
+    if patient_options[:reason_id] == nil or patient_options[:asa_grade_id] == 1
+      patient_options[:reason_id] = 0
     end
 
-    @recommend = Patient.where(options).where("recommendation = 1").first.tests
-    @consider  = Patient.where(options).where("recommendation = 2").first.tests
+    @patient_matches = Patient.where(patient_options)
+    @patient   = @patient_matches.first
+    @recommend = @patient_matches.where(:recommendation => 1).first.tests
+    @consider  = @patient_matches.where(:recommendation => 2).first.tests
   end
 
 end

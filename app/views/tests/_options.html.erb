@@ -1,69 +1,21 @@
-<%= form_tag '/results', :method => :get, :id => 'search_form', :class => 'form-horizontal' do %>
+<%= simple_form_for @patient, url: { action: 'results' }, html: { class: 'form-horizontal' } do |form| %>
 
 <div class="row">
-  <div class="form-group">
-    <label class="col-sm-2 control-label" for="age">Age</label>
-    <div class="col-sm-3">
-      <div class="radio">
-        <%= radio_button :results, :age, 1, {checked: @current_age == '1'} %> <%= label :age, '16 – 39', class: 'age' %>
-      </div>
-      <div class="radio">
-        <%= radio_button :results, :age, 2, {checked: @current_age == '2'} %> <%= label :age, '40 – 59', class: 'age' %>
-      </div>
-      <div class="radio">
-        <%= radio_button :results, :age, 3, {checked: @current_age == '3'} %> <%= label :age, '60 – 80', class: 'age' %>
-      </div>
-      <div class="radio">
-        <%= radio_button :results, :age, 4, {checked: @current_age == '4'} %> <%= label :age, '> 80 years', class: 'age' %>
-      </div>
-    </div>
-
-    <label class="col-sm-2 control-label" for="status">ASA Grade</label>
-    <div class="col-sm-3">
-      <div class="radio">
-        <%= radio_button :results, :status, 1, {checked: @current_status == '1'} %> <%= label :status, '1', class: 'status' %>
-      </div>
-      <div class="radio">
-        <%= radio_button :results, :status, 2, {checked: @current_status == '2'} %> <%= label :status, '2', class: 'status' %>
-      </div>
-      <div class="radio">
-        <%= radio_button :results, :status, 3, {checked: @current_status == '3'} %> <%= label :status, '3', class: 'status' %>
-      </div>
-    </div>
-  </div>
+    <%= form.association :age_group, as: :radio_buttons, label: 'Age' %>
+    <%= form.association :asa_grade, as: :radio_buttons, label: 'ASA Grade' %>
 </div>
 
 <div class="row">
-  <div class="form-group">
-    <label class="col-sm-2 control-label" for="surgery">Surgery</label>
-    <div class="col-sm-3">
-      <%= select :results, :surgery, [
-          ['Hysteroscopy (minor)', 1],
-          ['Inguinal hernia (intermediate)', 2],
-          ['Lap cholecystectomy (major)', 3],
-          ['Oesophagogastrectomy (complex)', 4]],
-          {selected: @current_surgery} %>
-    </div>
-
-    <label class="col-sm-2 control-label" for="reason">Reason for<br>ASA Grade</label>
-    <div class="col-sm-3">
-      <div class="radio">
-        <%= radio_button :results, :reason, 1, {checked: @current_reason == '1'} %> <%= label :reason, 'Cardiovascular', class: 'reason' %>
-      </div>
-      <div class="radio">
-        <%= radio_button :results, :reason, 2, {checked: @current_reason == '2'} %> <%= label :reason, 'Respiratory', class: 'reason' %>
-      </div>
-      <div class="radio">
-        <%= radio_button :results, :reason, 3, {checked: @current_reason == '3'} %> <%= label :reason, 'Renal', class: 'reason' %>
-      </div>
-    </div>
-  </div>
+    <%= form.association :surgery, label: 'Surgery' %>
+    <%= form.association :reason,  as: :radio_buttons, label: 'Reason for ASA Grade' %>
 </div>
 
 <div class="row">
-  <div class="col-sm-offset-2 col-sm-4">
-    <%= submit_tag 'Search', :class => "btn btn-primary", :id => 'search_submit' %>
-  </div>
+    <div class="form-group col-sm-6">
+        <div class="col-sm-offset-3 col-sm-9">
+            <%= form.button :submit, 'Search', class: 'btn-primary' %>
+        </div>
+    </div>
 </div>
 
 <% end %>
