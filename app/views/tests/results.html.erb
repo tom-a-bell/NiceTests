@@ -1,31 +1,9 @@
 <div class="container theme-showcase" role="main">
-  <div class="page-header">
-    <h1>Preoperative Tests</h1>
-  </div>
+    <div class="page-header">
+        <h1>Preoperative Tests</h1>
+    </div>
 
-  <%= render "options" %>
-  <br>
+    <%= render 'options' %>
+    <%= render 'tests' %>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @recommend.each do |test| %>
-        <tr class="success">
-          <td><strong><%= test.name %></strong></td>
-          <td><%= test.description %></td>
-        </tr>
-      <% end %>
-      <% @consider.each do |test| %>
-        <tr class="warning">
-          <td><strong><%= test.name %></strong></td>
-          <td><%= test.description %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 </div>

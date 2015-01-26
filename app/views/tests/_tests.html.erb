@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @recommend.each do |test| %>
+        <tr class="success">
+            <th><%= test.name %></th>
+            <td><%= test.description %></td>
+        </tr>
+    <% end %>
+    <% @consider.each do |test| %>
+        <tr class="warning">
+            <th><%= test.name %></th>
+            <td><%= test.description %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
