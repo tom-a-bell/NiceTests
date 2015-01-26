@@ -5,16 +5,16 @@ class TestsController < ApplicationController
   end
 
   def results
-    patient_options = params[:patient]
+    patient_criteria = params[:patient]
 
-    if patient_options[:reason_id] == nil or patient_options[:asa_grade_id] == 1
-      patient_options[:reason_id] = 0
+    if patient_criteria[:reason_id] == nil or patient_criteria[:asa_grade_id] == 1
+      patient_criteria[:reason_id] = 0
     end
 
-    @patient_matches = Patient.where(patient_options)
-    @patient   = @patient_matches.first
-    @recommend = @patient_matches.where(:recommendation => 1).first.tests
-    @consider  = @patient_matches.where(:recommendation => 2).first.tests
+    @matching_patients = Patient.where(patient_criteria)
+    @recommend = @matching_patients.where(:recommendation => 1).first.tests
+    @consider  = @matching_patients.where(:recommendation => 2).first.tests
+    @patient   = @matching_patients.first
   end
 
 end
