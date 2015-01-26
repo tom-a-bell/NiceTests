@@ -13,4 +13,5 @@
 //= require jquery
 //= require knockout
 //= require bootstrap
+//= require chosen/chosen.jquery
 //= require_tree .

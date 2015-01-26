@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "~> 3.0",
     "jquery": "~> 1.11",
-    "knockout": "~> 3.2"
+    "knockout": "~> 3.2",
+    "chosen": "https://github.com/harvesthq/chosen/releases/download/v1.3.0/chosen_v1.3.0.zip"
   }
 }

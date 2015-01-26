@@ -1,7 +1,22 @@
 <div class="form-group col-sm-6 radio_buttons optional patient_surgery">
     <label class="optional col-sm-3 control-label">Surgery</label>
     <div class="col-sm-9">
-        <select id="patient_specialty" data-bind="options: specialtyOptions, value: selectedSpecialty, optionsText: 'name'"></select>
-        <select id="patient_operation" name="patient[surgery_id]" data-bind="options: operationOptions, value: selectedOperation, optionsText: 'name', optionsValue: 'surgery_id'"></select>
+        <div data-bind="if: specialtiesAreAvailable">
+            <select id="patient_specialty" name="params[specialty_id]" data-bind="
+            value: selectedSpecialty,
+            options: specialtyOptions,
+            optionsText: 'name',
+            chosen: {default: 'Select a surgical specialty...'}">
+            </select>
+        </div>
+        <div data-bind="if: operationsAreAvailable">
+            <select id="patient_operation" name="patient[surgery_id]" data-bind="
+            value: selectedOperation,
+            options: operationOptions,
+            optionsText: 'name',
+            optionsValue: 'surgery_id',
+            chosen: {default: 'Select an operation...'}">
+            </select>
+        </div>
     </div>
 </div>
