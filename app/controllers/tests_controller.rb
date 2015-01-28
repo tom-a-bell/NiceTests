@@ -13,6 +13,14 @@ class TestsController < ApplicationController
       return
     end
 
+    if patient_criteria[:asa_grade_id] == 4
+      patient_criteria[:asa_grade_id] = 3
+    end
+
+    if patient_criteria[:reason_id].nil? or patient_criteria[:asa_grade_id] == 1
+      patient_criteria[:reason_id] = 1
+    end
+
     @matching_patients = Patient.where(patient_criteria)
     @recommend = @matching_patients.where(:recommendation => 1).first.tests
     @consider  = @matching_patients.where(:recommendation => 2).first.tests
