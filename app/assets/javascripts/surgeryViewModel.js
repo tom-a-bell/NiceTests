@@ -1,23 +1,24 @@
 $(document).ready(function () {
-    var surgeryViewModel = function(surgicalSpecialties) {
-
+    function SurgeryViewModel() {
         function addEmptyEntryToOperations(operations) {
             if (operations[0].name) {
                 operations.unshift({ name: undefined, surgery_id: undefined });
             }
         }
 
-        surgicalSpecialties.unshift({ name: undefined, operations: undefined });
-
         var self = this;
 
         self.selectedSpecialty = ko.observable();
         self.selectedOperation = ko.observable();
+        self.specialtyOptions = ko.observableArray();
 
-        self.specialtyOptions = ko.observableArray(surgicalSpecialties);
+        self.setSurgicalSpecialties = function (surgicalSpecialties) {
+            surgicalSpecialties.unshift({ name: undefined, operations: undefined });
+            self.specialtyOptions(surgicalSpecialties)
+        };
 
         self.specialtiesAreAvailable = ko.computed(function () {
-            return self.specialtyOptions()
+            return self.specialtyOptions() && self.specialtyOptions().length > 0;
         });
 
         self.operationsAreAvailable = ko.computed(function () {
@@ -32,10 +33,14 @@ $(document).ready(function () {
             }
             return undefined;
         });
-    };
+
+        return self;
+    }
+
+    var surgeryViewModel = new SurgeryViewModel();
+    ko.applyBindings(surgeryViewModel);
 
     $.getJSON('/specialties', function (surgicalSpecialties) {
-        var surgeryOptions = new surgeryViewModel(surgicalSpecialties);
-        ko.applyBindings(surgeryOptions);
+        surgeryViewModel.setSurgicalSpecialties(surgicalSpecialties);
     });
 });
