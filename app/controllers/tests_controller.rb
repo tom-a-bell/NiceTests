@@ -21,6 +21,9 @@ class TestsController < ApplicationController
       patient_criteria[:reason_id] = 1
     end
 
+    specialty_id = params[:specialty_id]
+    operation_id = params[:operation_id]
+
     @matching_patients = Patient.where(patient_criteria)
     @recommend = @matching_patients.where(:recommendation => 1).first.tests
     @consider  = @matching_patients.where(:recommendation => 2).first.tests
