@@ -7,8 +7,10 @@ class TestsController < ApplicationController
   def results
     patient_criteria = params[:patient]
 
-    if patient_criteria[:reason_id] == nil or patient_criteria[:asa_grade_id] == 1
-      patient_criteria[:reason_id] = 0
+    if criteriaAreInvalid?(patient_criteria)
+      flash[:error] = 'Please select options for all patient criteria.'
+      redirect_to :back
+      return
     end
 
     @matching_patients = Patient.where(patient_criteria)
@@ -17,4 +19,7 @@ class TestsController < ApplicationController
     @patient   = @matching_patients.first
   end
 
+  def criteriaAreInvalid?(criteria)
+    criteria.nil? || criteria.length < 4 || criteria.values.include?(nil)
+  end
 end
