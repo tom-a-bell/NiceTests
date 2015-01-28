@@ -5,6 +5,7 @@ Nicetests::Application.routes.draw do
   get 'specialties/' => 'operations#specialties'
 
   post 'results/' => 'tests#results'
+  patch 'results/' => 'tests#results'
 
   root :to => redirect('/tests')
 
