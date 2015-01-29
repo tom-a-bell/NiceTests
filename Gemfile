@@ -24,16 +24,12 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-# gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+# Turbolinks makes following links in your web application faster.
+# Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+# Build JSON APIs with ease.
+# Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
 group :doc do
@@ -44,7 +40,7 @@ end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the app server
+# Use Unicorn as the app server
 # gem 'unicorn'
 
 # Use Capistrano for deployment
@@ -55,3 +51,6 @@ end
 
 # Use Simple Form for rendering forms
 gem 'simple_form'
+
+# Use Rails 12factor for better integration with Heroku
+gem 'rails_12factor', group: :production
