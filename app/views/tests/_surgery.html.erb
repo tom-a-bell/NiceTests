@@ -1,27 +1,25 @@
 <div class="form-group col-sm-6 radio_buttons optional patient_surgery">
     <label class="optional col-sm-3 control-label">Surgery</label>
     <div class="col-sm-9">
-        <span data-bind="if: !specialtiesAreAvailable()">Loading...</span>
+        <span data-bind="ifnot: specialtiesAreAvailable()">Loading...</span>
         <div data-bind="if: specialtiesAreAvailable">
             <select id="patient_specialty" data-bind="
+            chosen: {options: specialtyOptions, placeholder: 'Select a surgical specialty...'},
             value: selectedSpecialty,
-            options: specialtyOptions,
-            optionsText: 'name',
-            chosen: {default: 'Select a surgical specialty...'}">
+            optionsText: 'name'">
             </select>
         </div>
         <div data-bind="if: operationsAreAvailable">
             <select id="patient_operation" data-bind="
+            chosen: {options: operationOptions, placeholder: 'Select an operation...'},
             value: selectedOperation,
-            options: operationOptions,
-            optionsText: 'name',
-            chosen: {default: 'Select an operation...'}">
+            optionsText: 'name'">
             </select>
         </div>
-        <!-- ko if: selectedSpecialty && selectedOperation -->
+        <!-- ko if: selectedOperation -->
+        <input type="hidden" name="patient[surgery_id]" data-bind="attr: { value: selectedOperation().surgery_id }">
         <input type="hidden" name="specialty_id" data-bind="attr: { value: selectedSpecialty().id }">
         <input type="hidden" name="operation_id" data-bind="attr: { value: selectedOperation().id }">
-        <input type="hidden" name="patient[surgery_id]" data-bind="attr: { value: selectedOperation().surgery_id }">
         <!-- /ko -->
     </div>
 </div>

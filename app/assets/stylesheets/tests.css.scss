@@ -10,4 +10,8 @@ label.disabled {
 .chosen-container {
   width: 300px !important;
   padding-top: 5px;
+
+  .chosen-results {
+    max-height: 250px;
+  }
 }

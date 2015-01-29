@@ -1,15 +1,18 @@
 $(document).ready(function() {
     ko.bindingHandlers.chosen = {
-        init: function (element, valueAccessor, allBindingsAccessor) {
-            var allBindings = allBindingsAccessor();
+        init: function (element, valueAccessor, allBindings) {
+            var properties = { placeholder: 'Select one...', disable_search_threshold: 11 };
+            $.extend(properties, allBindings().chosen);
 
-            var options = { default: 'Select one...' };
-            $.extend(options, allBindings.chosen)
+            ko.bindingHandlers.options.init(element);
 
-            $(element).attr('data-placeholder', options.default);
+            $(element).attr('data-placeholder', properties.placeholder);
+            $(element).chosen(properties);
         },
-        update: function (element) {
-            $(element).chosen();
+        update: function (element, valueAccessor, allBindings) {
+            var options = valueAccessor().options;
+            ko.bindingHandlers.options.update(element, options, allBindings);
+            $(element).trigger('chosen:updated');
         }
     };
 });
