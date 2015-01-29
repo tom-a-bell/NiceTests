@@ -6,13 +6,19 @@
         </tr>
     </thead>
     <tbody>
-    <% @recommend.each do |test| %>
+    <% @special_tests.each do |test| %>
+        <tr class="danger">
+            <th><%= test.name %></th>
+            <td><%= test.description %></td>
+        </tr>
+    <% end %>
+    <% @recommend_tests.each do |test| %>
         <tr class="success">
             <th><%= test.name %></th>
             <td><%= test.description %></td>
         </tr>
     <% end %>
-    <% @consider.each do |test| %>
+    <% @optional_tests.each do |test| %>
         <tr class="warning">
             <th><%= test.name %></th>
             <td><%= test.description %></td>

@@ -25,8 +25,12 @@ class TestsController < ApplicationController
     operation_id = params[:operation_id]
 
     @matching_patients = Patient.where(patient_criteria)
-    @recommend = @matching_patients.where(:recommendation => 1).first.tests
-    @consider  = @matching_patients.where(:recommendation => 2).first.tests
+    @matching_operation = Operation.find(operation_id)
+
+    @recommend_tests = @matching_patients.where(:recommendation => 1).first.tests
+    @optional_tests  = @matching_patients.where(:recommendation => 2).first.tests
+    @special_tests   = @matching_operation.tests
+
     @patient   = @matching_patients.first
   end
 
