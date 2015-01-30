@@ -54,3 +54,6 @@ gem 'simple_form'
 
 # Use Rails 12factor for better integration with Heroku
 gem 'rails_12factor', group: :production
+
+# Use New Relic for site analytics
+gem 'newrelic_rpm'
