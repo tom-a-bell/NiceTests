@@ -7,7 +7,7 @@
 
 <div class="row">
     <%= render 'surgery' %>
-    <%= form.association :reason,  as: :radio_buttons, label: 'Reason for ASA Grade' %>
+    <%= form.association :reason, as: :check_boxes, label: 'Reason for<br/>ASA Grade'.html_safe %>
 </div>
 
 <div class="row">
