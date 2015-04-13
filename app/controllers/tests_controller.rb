@@ -7,18 +7,18 @@ class TestsController < ApplicationController
   def results
     patient_criteria = params[:patient]
 
-    if criteriaAreInvalid?(patient_criteria)
+    if patient_criteria_are_invalid?(patient_criteria)
       flash[:error] = 'Please select options for all patient criteria.'
       redirect_to :back
       return
     end
 
-    if patient_criteria[:asa_grade_id] == 4
-      patient_criteria[:asa_grade_id] = 3
+    if patient_criteria[:asa_grade_id] == '4'
+      patient_criteria[:asa_grade_id] = '3'
     end
 
-    if patient_criteria[:reason_id].nil? or patient_criteria[:asa_grade_id] == 1
-      patient_criteria[:reason_id] = 1
+    if patient_criteria[:reason_id].nil? or patient_criteria[:asa_grade_id] == '1'
+      patient_criteria[:reason_id] = '1'
     end
 
     specialty_id = params[:specialty_id]
@@ -34,7 +34,7 @@ class TestsController < ApplicationController
     @patient = @matching_patients.first
   end
 
-  def criteriaAreInvalid?(criteria)
+  def patient_criteria_are_invalid?(criteria)
     criteria.nil? || criteria.length < 4 || criteria.values.include?(nil)
   end
 end
