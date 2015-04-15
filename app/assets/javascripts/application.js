@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require lodash
 //= require knockout
 //= require bootstrap
 //= require chosen/chosen.jquery

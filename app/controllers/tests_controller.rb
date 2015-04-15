@@ -21,11 +21,11 @@ class TestsController < ApplicationController
       patient_criteria[:reason_id] = '1'
     end
 
-    specialty_id = params[:specialty_id]
-    operation_id = params[:operation_id]
+    @specialty_id = params[:specialty_id]
+    @operation_id = params[:operation_id]
 
     @matching_patients = Patient.where(patient_criteria)
-    @matching_operation = Operation.find(operation_id)
+    @matching_operation = Operation.find(@operation_id)
 
     @recommend_tests = @matching_patients.where(recommendation: 1).flat_map { |patient| patient.tests }.uniq
     @optional_tests  = @matching_patients.where(recommendation: 2).flat_map { |patient| patient.tests }.uniq

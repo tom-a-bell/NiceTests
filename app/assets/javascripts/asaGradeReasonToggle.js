@@ -10,6 +10,7 @@ $(document).ready(function () {
                     selectOption(reason);
                 } else {
                     disableOption(reason);
+                    deselectOption(reason);
                 }
             });
         } else {

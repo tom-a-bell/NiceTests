@@ -1,18 +1,22 @@
 <div class="form-group col-sm-6 radio_buttons optional patient_surgery">
-    <label class="optional col-sm-3 control-label">Surgery</label>
+    <input type="hidden" name="previous_specialty_id" value="<%= @specialty_id %>">
+    <input type="hidden" name="previous_operation_id" value="<%= @operation_id %>">
+    <label for="patient_specialty" class="optional col-sm-3 control-label">Surgery</label>
     <div class="col-sm-9">
         <span data-bind="ifnot: specialtiesAreAvailable()">Loading...</span>
         <div data-bind="if: specialtiesAreAvailable">
             <select id="patient_specialty" data-bind="
-            chosen: {options: specialtyOptions, placeholder: 'Select a surgical specialty...'},
+            chosen: {placeholder: 'Select a surgical specialty...'},
             value: selectedSpecialty,
+            options: specialtyOptions,
             optionsText: 'name'">
             </select>
         </div>
         <div data-bind="if: operationsAreAvailable">
             <select id="patient_operation" data-bind="
-            chosen: {options: operationOptions, placeholder: 'Select an operation...'},
+            chosen: {placeholder: 'Select an operation...'},
             value: selectedOperation,
+            options: operationOptions,
             optionsText: 'name'">
             </select>
         </div>

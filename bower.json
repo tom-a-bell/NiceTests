@@ -1,11 +1,12 @@
 {
-  "name": "nice-tests",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "bootstrap": "~> 3.0",
-    "jquery": "~> 1.11",
-    "knockout": "~> 3.2",
-    "chosen": "https://github.com/harvesthq/chosen/releases/download/v1.3.0/chosen_v1.3.0.zip"
-  }
+    "name": "nice-tests",
+    "version": "0.2.0",
+    "private": true,
+    "dependencies": {
+        "bootstrap": "~> 3.0",
+        "jquery": "~> 1.11",
+        "knockout": "~> 3.2",
+        "lodash": "~> 3.6",
+        "chosen": "https://github.com/harvesthq/chosen/releases/download/v1.3.0/chosen_v1.3.0.zip"
+    }
 }
