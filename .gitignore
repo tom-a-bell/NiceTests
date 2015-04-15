@@ -17,3 +17,6 @@
 
 # Ignore all generated static assets.
 /public/assets
+
+# Ignore file system metadata files.
+*.DS_Store
