@@ -6,13 +6,13 @@
         </tr>
     </thead>
     <tbody>
-    <% @special_tests.each do |test| %>
+    <% @additional_tests.each do |test| %>
         <tr class="success">
             <th><%= test.name %></th>
             <td><%= test.description %></td>
         </tr>
     <% end %>
-    <% @recommend_tests.each do |test| %>
+    <% @recommended_tests.each do |test| %>
         <tr class="success">
             <th><%= test.name %></th>
             <td><%= test.description %></td>

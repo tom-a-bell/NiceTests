@@ -1,9 +1,18 @@
 $(document).ready(function () {
-    var availableAsaGrades = $('.patient_asa_grade input');
     var availableReasons = $('.patient_reason input');
+    var availableAsaGrades = $('.patient_asa_grade input');
+    var initiallySelectedAsaGrade = $('.patient_asa_grade input:checked')[0];
+
+    if (initiallySelectedAsaGrade) {
+        setAvailableReasonsFor(initiallySelectedAsaGrade);
+    }
 
     availableAsaGrades.on('change', function () {
-        if (selectedAsaGradeIs(1, this)) {
+        setAvailableReasonsFor(this);
+    });
+
+    function setAvailableReasonsFor(asaGrade) {
+        if (selectedAsaGradeIs(asaGrade, 1)) {
             $.each(availableReasons, function (index, reason) {
                 if (reasonIsNone(reason)) {
                     enableOption(reason);
@@ -23,32 +32,32 @@ $(document).ready(function () {
                 }
             });
         }
-    });
+    }
 
-    function selectedAsaGradeIs(grade, radioButton) {
+    function selectedAsaGradeIs(radioButton, grade) {
         var asaGradeId = 'patient_asa_grade_id_' + grade;
         return radioButton.id === asaGradeId && radioButton.checked;
     }
 
-    function reasonIsNone(radioButton) {
-        return radioButton.value === '1';
+    function reasonIsNone(checkbox) {
+        return checkbox.value === '1';
     }
 
-    function selectOption(radioButton) {
-        radioButton.checked = true;
+    function selectOption(checkbox) {
+        checkbox.checked = true;
     }
 
-    function deselectOption(radioButton) {
-        radioButton.checked = false;
+    function deselectOption(checkbox) {
+        checkbox.checked = false;
     }
 
-    function enableOption(radioButton) {
-        radioButton.disabled = false;
-        $(radioButton).parent().removeClass('disabled');
+    function enableOption(checkbox) {
+        checkbox.disabled = false;
+        $(checkbox).parent().removeClass('disabled');
     }
 
-    function disableOption(radioButton) {
-        radioButton.disabled = true;
-        $(radioButton).parent().addClass('disabled');
+    function disableOption(checkbox) {
+        checkbox.disabled = true;
+        $(checkbox).parent().addClass('disabled');
     }
 });
