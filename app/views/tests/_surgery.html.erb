@@ -1,6 +1,4 @@
 <div class="form-group col-sm-6 radio_buttons optional patient_surgery">
-    <input type="hidden" name="previous_specialty_id" value="<%= @specialty_id %>">
-    <input type="hidden" name="previous_operation_id" value="<%= @operation_id %>">
     <label for="patient_specialty" class="optional col-sm-3 control-label">Surgery</label>
     <div class="col-sm-9">
         <span data-bind="ifnot: specialtiesAreAvailable()">Loading...</span>

@@ -15,17 +15,19 @@ class TestsController < ApplicationController
 
     check_asa_grade_and_reasons(patient_criteria)
 
-    @specialty_id = params[:specialty_id]
-    @operation_id = params[:operation_id]
+    reason_ids = patient_criteria[:reason_id]
+    specialty_id = params[:specialty_id]
+    operation_id = params[:operation_id]
 
     @matching_patients = Patient.where(patient_criteria)
-    @matching_operation = Operation.find(@operation_id)
+    @matching_operation = Operation.find(operation_id)
 
     @recommended_tests = @matching_patients.where(recommendation: 1).flat_map { |patient| patient.tests }.uniq
     @optional_tests    = @matching_patients.where(recommendation: 2).flat_map { |patient| patient.tests }.uniq
     @additional_tests  = @matching_operation.tests
 
     @patient = @matching_patients.first
+    @previous_criteria = { reason_ids: reason_ids, specialty_id: specialty_id, operation_id: operation_id }
   end
 
   def patient_criteria_are_invalid?(criteria)
@@ -33,7 +35,7 @@ class TestsController < ApplicationController
   end
 
   def check_asa_grade_and_reasons(patient_criteria)
-    if patient_criteria[:reason_id].nil? or patient_criteria[:asa_grade_id] == '1'
+    if patient_criteria[:reason_id].nil? or patient_criteria[:reason_id].empty? or patient_criteria[:asa_grade_id] == '1'
       patient_criteria[:reason_id] = '1'
     end
   end
