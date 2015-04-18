@@ -1,5 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# This file contains the full set of NICE preoperative test data, including patient criteria and test recommendations.
+# These data can be loaded into the database with the rake db:seed (or created alongside the db with db:setup).
 
 
 ### Age Groups ###
@@ -26,7 +26,7 @@ respiratory = Reason.create(name: 'Respiratory')
 renal = Reason.create(name: 'Renal')
 
 
-### Surgery Grades ###
+### Surgical Grades ###
 
 minor = Surgery.create(name: 'Minor')
 intermediate = Surgery.create(name: 'Intermediate')
@@ -48,7 +48,7 @@ cardio = SurgicalSpecialty.create(name: 'Cardiology')
 ophthal = SurgicalSpecialty.create(name: 'Ophthalmology')
 
 
-### Recommended Tests ###
+### Preoperative Tests ###
 
 xray  = Test.create(name: 'Chest X-ray', description: 'Radiograph')
 ecg   = Test.create(name: 'ECG', description: 'Resting electrocardiogram')
@@ -61,7 +61,7 @@ blood = Test.create(name: 'Blood gases', description: '')
 lung  = Test.create(name: 'Lung function', description: 'Peak expiratory flow rate, forced vital capacity and forced expiratory volume')
 
 
-### Extra Tests ###
+### Additional Tests ###
 
 lfts = Test.create(name: 'LFTs', description: '')
 tfts = Test.create(name: 'TFTs', description: '')
@@ -148,6 +148,39 @@ Patient.create(age_group: age_group_2, asa_grade: grade_3, reason: renal, surger
 Patient.create(age_group: age_group_3, asa_grade: grade_3, reason: renal, surgery: minor, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood])
 Patient.create(age_group: age_group_4, asa_grade: grade_3, reason: renal, surgery: minor, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood])
 
+# ASA Grade 4 (cardiovascular) - minor surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: cardiovascular, surgery: minor, recommendation: 1, tests: [ecg, renfn])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: cardiovascular, surgery: minor, recommendation: 1, tests: [ecg, renfn])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: cardiovascular, surgery: minor, recommendation: 1, tests: [ecg, renfn])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: cardiovascular, surgery: minor, recommendation: 1, tests: [ecg, renfn])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: cardiovascular, surgery: minor, recommendation: 2, tests: [xray, fbc, urine, blood])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: cardiovascular, surgery: minor, recommendation: 2, tests: [xray, fbc, urine, blood])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: cardiovascular, surgery: minor, recommendation: 2, tests: [xray, fbc, urine, blood])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: cardiovascular, surgery: minor, recommendation: 2, tests: [xray, fbc, urine, blood])
+
+# ASA Grade 4 (respiratory) - minor surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: respiratory, surgery: minor, recommendation: 1, tests: [])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: respiratory, surgery: minor, recommendation: 1, tests: [])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: respiratory, surgery: minor, recommendation: 1, tests: [])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: respiratory, surgery: minor, recommendation: 1, tests: [])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: respiratory, surgery: minor, recommendation: 2, tests: [xray, ecg, fbc, renfn, urine, blood])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: respiratory, surgery: minor, recommendation: 2, tests: [xray, ecg, fbc, renfn, urine, blood])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: respiratory, surgery: minor, recommendation: 2, tests: [xray, ecg, fbc, renfn, urine, blood])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: respiratory, surgery: minor, recommendation: 2, tests: [xray, ecg, fbc, renfn, urine, blood])
+
+# ASA Grade 4 (renal) - minor surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: renal, surgery: minor, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: renal, surgery: minor, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: renal, surgery: minor, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: renal, surgery: minor, recommendation: 1, tests: [fbc, renfn])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: renal, surgery: minor, recommendation: 2, tests: [haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: renal, surgery: minor, recommendation: 2, tests: [ecg, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: renal, surgery: minor, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: renal, surgery: minor, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood])
+
 
 ### Intermediate Surgery ###
 
@@ -227,6 +260,39 @@ Patient.create(age_group: age_group_1, asa_grade: grade_3, reason: renal, surger
 Patient.create(age_group: age_group_2, asa_grade: grade_3, reason: renal, surgery: intermediate, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood])
 Patient.create(age_group: age_group_3, asa_grade: grade_3, reason: renal, surgery: intermediate, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
 Patient.create(age_group: age_group_4, asa_grade: grade_3, reason: renal, surgery: intermediate, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
+
+# ASA Grade 4 (cardiovascular) - intermediate surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: cardiovascular, surgery: intermediate, recommendation: 1, tests: [ecg, renfn])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: cardiovascular, surgery: intermediate, recommendation: 1, tests: [ecg, renfn])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: cardiovascular, surgery: intermediate, recommendation: 1, tests: [ecg, renfn])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: cardiovascular, surgery: intermediate, recommendation: 1, tests: [ecg, renfn])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: cardiovascular, surgery: intermediate, recommendation: 2, tests: [xray, fbc, urine, blood])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: cardiovascular, surgery: intermediate, recommendation: 2, tests: [xray, fbc, urine, blood])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: cardiovascular, surgery: intermediate, recommendation: 2, tests: [xray, fbc, urine, blood])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: cardiovascular, surgery: intermediate, recommendation: 2, tests: [xray, fbc, urine, blood])
+
+# ASA Grade 4 (respiratory) - intermediate surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: respiratory, surgery: intermediate, recommendation: 1, tests: [])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: respiratory, surgery: intermediate, recommendation: 1, tests: [])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: respiratory, surgery: intermediate, recommendation: 1, tests: [ecg])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: respiratory, surgery: intermediate, recommendation: 1, tests: [ecg, fbc])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: respiratory, surgery: intermediate, recommendation: 2, tests: [xray, ecg, fbc, renfn, urine, blood, lung])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: respiratory, surgery: intermediate, recommendation: 2, tests: [xray, ecg, fbc, renfn, urine, blood, lung])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: respiratory, surgery: intermediate, recommendation: 2, tests: [xray, fbc, renfn, urine, blood, lung])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: respiratory, surgery: intermediate, recommendation: 2, tests: [xray, renfn, urine, blood, lung])
+
+# ASA Grade 4 (renal) - intermediate surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: renal, surgery: intermediate, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: renal, surgery: intermediate, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: renal, surgery: intermediate, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: renal, surgery: intermediate, recommendation: 1, tests: [ecg, fbc, renfn])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: renal, surgery: intermediate, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: renal, surgery: intermediate, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: renal, surgery: intermediate, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: renal, surgery: intermediate, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
 
 
 ### Major Surgery ###
@@ -308,6 +374,39 @@ Patient.create(age_group: age_group_2, asa_grade: grade_3, reason: renal, surger
 Patient.create(age_group: age_group_3, asa_grade: grade_3, reason: renal, surgery: major, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
 Patient.create(age_group: age_group_4, asa_grade: grade_3, reason: renal, surgery: major, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
 
+# ASA Grade 4 (cardiovascular) - major surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: cardiovascular, surgery: major, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: cardiovascular, surgery: major, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: cardiovascular, surgery: major, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: cardiovascular, surgery: major, recommendation: 1, tests: [ecg, fbc, renfn])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: cardiovascular, surgery: major, recommendation: 2, tests: [xray, haemo, urine, blood])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: cardiovascular, surgery: major, recommendation: 2, tests: [xray, haemo, urine, blood])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: cardiovascular, surgery: major, recommendation: 2, tests: [xray, haemo, urine, blood])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: cardiovascular, surgery: major, recommendation: 2, tests: [xray, haemo, urine, blood])
+
+# ASA Grade 4 (respiratory) - major surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: respiratory, surgery: major, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: respiratory, surgery: major, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: respiratory, surgery: major, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: respiratory, surgery: major, recommendation: 1, tests: [ecg, fbc, renfn])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: respiratory, surgery: major, recommendation: 2, tests: [xray, ecg, gluco, urine, blood, lung])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: respiratory, surgery: major, recommendation: 2, tests: [xray, ecg, gluco, urine, blood, lung])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: respiratory, surgery: major, recommendation: 2, tests: [xray, gluco, urine, blood, lung])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: respiratory, surgery: major, recommendation: 2, tests: [xray, gluco, urine, blood, lung])
+
+# ASA Grade 4 (renal) - major surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: renal, surgery: major, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: renal, surgery: major, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: renal, surgery: major, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: renal, surgery: major, recommendation: 1, tests: [ecg, fbc, renfn])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: renal, surgery: major, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: renal, surgery: major, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: renal, surgery: major, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: renal, surgery: major, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
+
 
 ### Complex Surgery ###
 
@@ -388,8 +487,41 @@ Patient.create(age_group: age_group_2, asa_grade: grade_3, reason: renal, surger
 Patient.create(age_group: age_group_3, asa_grade: grade_3, reason: renal, surgery: complex, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
 Patient.create(age_group: age_group_4, asa_grade: grade_3, reason: renal, surgery: complex, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
 
+# ASA Grade 4 (cardiovascular) - complex surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: cardiovascular, surgery: complex, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: cardiovascular, surgery: complex, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: cardiovascular, surgery: complex, recommendation: 1, tests: [xray, ecg, fbc, renfn])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: cardiovascular, surgery: complex, recommendation: 1, tests: [xray, ecg, fbc, renfn])
 
-### Operations ###
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: cardiovascular, surgery: complex, recommendation: 2, tests: [xray, haemo, urine, blood])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: cardiovascular, surgery: complex, recommendation: 2, tests: [xray, haemo, urine, blood])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: cardiovascular, surgery: complex, recommendation: 2, tests: [haemo, urine, blood])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: cardiovascular, surgery: complex, recommendation: 2, tests: [haemo, urine, blood])
+
+# ASA Grade 4 (respiratory) - complex surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: respiratory, surgery: complex, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: respiratory, surgery: complex, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: respiratory, surgery: complex, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: respiratory, surgery: complex, recommendation: 1, tests: [ecg, fbc, renfn])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: respiratory, surgery: complex, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood, lung])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: respiratory, surgery: complex, recommendation: 2, tests: [xray, haemo, gluco, urine, blood, lung])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: respiratory, surgery: complex, recommendation: 2, tests: [xray, haemo, gluco, urine, blood, lung])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: respiratory, surgery: complex, recommendation: 2, tests: [xray, haemo, gluco, urine, blood, lung])
+
+# ASA Grade 4 (renal) - complex surgery
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: renal, surgery: complex, recommendation: 1, tests: [fbc, renfn])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: renal, surgery: complex, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: renal, surgery: complex, recommendation: 1, tests: [ecg, fbc, renfn])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: renal, surgery: complex, recommendation: 1, tests: [ecg, fbc, renfn])
+
+Patient.create(age_group: age_group_1, asa_grade: grade_4, reason: renal, surgery: complex, recommendation: 2, tests: [xray, ecg, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_2, asa_grade: grade_4, reason: renal, surgery: complex, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_3, asa_grade: grade_4, reason: renal, surgery: complex, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
+Patient.create(age_group: age_group_4, asa_grade: grade_4, reason: renal, surgery: complex, recommendation: 2, tests: [xray, haemo, gluco, urine, blood])
+
+
+### Operations (including associated surgical grade, specialty and any additional tests) ###
 
 Operation.create(name: "Nasal polpectomy", description: '', surgery: minor, surgical_specialties: [ent], tests: [])
 Operation.create(name: "EUA nose/PNS", description: '', surgery: minor, surgical_specialties: [ent], tests: [])

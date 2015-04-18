@@ -13,13 +13,7 @@ class TestsController < ApplicationController
       return
     end
 
-    if patient_criteria[:asa_grade_id] == '4'
-      patient_criteria[:asa_grade_id] = '3'
-    end
-
-    if patient_criteria[:reason_id].nil? or patient_criteria[:asa_grade_id] == '1'
-      patient_criteria[:reason_id] = '1'
-    end
+    check_asa_grade_and_reasons(patient_criteria)
 
     @specialty_id = params[:specialty_id]
     @operation_id = params[:operation_id]
@@ -36,5 +30,11 @@ class TestsController < ApplicationController
 
   def patient_criteria_are_invalid?(criteria)
     criteria.nil? || criteria.length < 4 || criteria.values.include?(nil)
+  end
+
+  def check_asa_grade_and_reasons(patient_criteria)
+    if patient_criteria[:reason_id].nil? or patient_criteria[:asa_grade_id] == '1'
+      patient_criteria[:reason_id] = '1'
+    end
   end
 end
