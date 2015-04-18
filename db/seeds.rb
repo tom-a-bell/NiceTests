@@ -4,10 +4,10 @@
 
 ### Age Groups ###
 
-age_group_1 = AgeGroup.create(name: '16 - 39')
-age_group_2 = AgeGroup.create(name: '40 - 59')
-age_group_3 = AgeGroup.create(name: '60 - 80')
-age_group_4 = AgeGroup.create(name: '> 80 years')
+age_group_1 = AgeGroup.create(name: '16 &ndash; 39')
+age_group_2 = AgeGroup.create(name: '40 &ndash; 59')
+age_group_3 = AgeGroup.create(name: '60 &ndash; 80')
+age_group_4 = AgeGroup.create(name: 'Over 80')
 
 
 ### ASA Grades ###

@@ -5,7 +5,7 @@
 <%= simple_form_for @patient, url: { action: 'results' }, html: { class: 'form-horizontal' } do |form| %>
 
 <div class="row">
-    <%= form.association :age_group, as: :radio_buttons, label: 'Age' %>
+    <%= form.association :age_group, as: :radio_buttons, label: 'Age', :label_method => lambda { |item| "#{item.name}".html_safe } %>
     <%= form.association :asa_grade, as: :radio_buttons, label: 'ASA Grade' %>
 </div>
 
