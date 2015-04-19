@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var previousReasons = document.getElementById('previous_reasons');
 
-    if (previousReasons) {
+    if (previousReasons.value) {
         var previousReasonIds = JSON.parse(previousReasons.value);
         $.each(previousReasonIds, function (index, id) {
             var reason = getReasonById(id);

@@ -2,6 +2,7 @@ class TestsController < ApplicationController
 
   def index
     @patient = Patient.new
+    @previous_criteria = {}
   end
 
   def results
