@@ -1,5 +1,5 @@
 # This file contains the full set of NICE preoperative test data, including patient criteria and test recommendations.
-# These data can be loaded into the database with the rake db:seed (or created alongside the db with db:setup).
+# These data can be loaded into the database with the rake db:seed command (or created alongside the db with db:setup).
 
 
 ### Age Groups ###
@@ -58,7 +58,7 @@ ophthal = SurgicalSpecialty.create(name: 'Ophthalmology')
 
 ### Preoperative Tests ###
 
-xray  = Test.create(name: 'Chest X-ray', description: 'Radiograph')
+xray  = Test.create(name: 'Chest x-ray', description: 'Radiograph')
 ecg   = Test.create(name: 'ECG', description: 'Resting electrocardiogram')
 fbc   = Test.create(name: 'Full blood count', description: '')
 haemo = Test.create(name: 'Haemostasis', description: 'Including prothrombin time, activated partial thromboplastin time and international normalised ratio')
