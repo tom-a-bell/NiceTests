@@ -1,6 +1,6 @@
-<div class="form-group col-sm-6 radio_buttons optional patient_surgery">
-    <label for="patient_specialty" class="optional col-sm-3 control-label">Surgery</label>
-    <div class="col-sm-9">
+<div class="form-group col-sm-6 select optional patient_surgery">
+    <label for="patient_specialty" class="optional col-sm-2 control-label">Surgery</label>
+    <div class="col-sm-10">
         <span data-bind="ifnot: specialtiesAreAvailable()">Loading...</span>
         <div data-bind="if: specialtiesAreAvailable">
             <select id="patient_specialty" data-bind="

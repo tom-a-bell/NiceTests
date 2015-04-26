@@ -12,18 +12,26 @@ age_group_4 = AgeGroup.create(name: 'Over 80')
 
 ### ASA Grades ###
 
-grade_1 = AsaGrade.create(name: '1')
-grade_2 = AsaGrade.create(name: '2')
-grade_3 = AsaGrade.create(name: '3')
-grade_4 = AsaGrade.create(name: '4')
+grade_1 = AsaGrade.create(name: '1', description: 'A normal healthy patient.')
+grade_2 = AsaGrade.create(name: '2', description: 'A patient with <em>mild</em><br>systemic disease.')
+grade_3 = AsaGrade.create(name: '3', description: 'A patient with <em>severe</em><br>systemic disease.')
+grade_4 = AsaGrade.create(name: '4', description: 'A patient with <em>severe</em> systemic disease that is a constant threat to life.')
 
 
 ### Reasons for ASA Grade ###
 
 none = Reason.create(name: 'None')
-cardiovascular = Reason.create(name: 'Cardiovascular')
-respiratory = Reason.create(name: 'Respiratory')
-renal = Reason.create(name: 'Renal')
+cardiovascular = Reason.create(name: 'Cardiovascular', description: 'Conditions include:<ul>
+<li>Angina</li>
+<li>Hypertension</li>
+<li>Diabetes</li>
+<li>Prior coronary revascularisation</li></ul>')
+respiratory = Reason.create(name: 'Respiratory', description: 'Conditions include:<ul>
+<li>COAD/COPD</li>
+<li>Asthma</li></ul>')
+renal = Reason.create(name: 'Renal', description: 'Conditions include:<ul>
+<li>Elevated creatinine</li>
+<li>Dialysis</li></ul>')
 
 
 ### Surgical Grades ###
@@ -56,17 +64,17 @@ fbc   = Test.create(name: 'Full blood count', description: '')
 haemo = Test.create(name: 'Haemostasis', description: 'Including prothrombin time, activated partial thromboplastin time and international normalised ratio')
 renfn = Test.create(name: 'Renal function', description: 'Including tests for potassium, sodium, creatinine and/or urea levels')
 gluco = Test.create(name: 'Random glucose', description: '')
-urine = Test.create(name: 'Urine analysis', description: 'Urine dipstick tests - test for pH, protein, glucose, ketones, blood/haemoglobin')
+urine = Test.create(name: 'Urine analysis', description: 'Urine dipstick tests for pH, protein, glucose, ketones, blood/haemoglobin')
 blood = Test.create(name: 'Blood gases', description: '')
 lung  = Test.create(name: 'Lung function', description: 'Peak expiratory flow rate, forced vital capacity and forced expiratory volume')
 
 
 ### Additional Tests ###
 
-lfts = Test.create(name: 'LFTs', description: '')
-tfts = Test.create(name: 'TFTs', description: '')
-bone = Test.create(name: 'Bone profile and PTH', description: '')
-ues  = Test.create(name: 'U&Es', description: '')
+lfts = Test.create(name: 'LFTs', description: 'Liver function tests')
+tfts = Test.create(name: 'TFTs', description: 'Thyroid function tests')
+bone = Test.create(name: 'Bone profile and PTH', description: 'Parathyroid hormone test')
+ues  = Test.create(name: 'U&Es', description: 'Urea and electrolytes test')
 
 
 ### Minor Surgery ###

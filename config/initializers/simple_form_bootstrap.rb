@@ -95,7 +95,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :horizontal_radio_and_checkboxes, tag: 'div', class: 'form-group col-sm-6', error_class: 'has-error' do |b|
+  config.wrappers :horizontal_radio_and_checkboxes, tag: 'div', class: 'col-sm-4 form-group', error_class: 'has-error' do |b|
     b.use :html5
     b.optional :readonly
 
@@ -108,7 +108,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :horizontal_select, tag: 'div', class: 'form-group col-sm-6', error_class: 'has-error' do |b|
+  config.wrappers :horizontal_select, tag: 'div', class: 'col-sm-4 form-group', error_class: 'has-error' do |b|
     b.use :html5
     b.optional :readonly
 

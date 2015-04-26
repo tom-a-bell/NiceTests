@@ -15,3 +15,23 @@ label.disabled {
     max-height: 250px;
   }
 }
+
+.description-tooltip + .tooltip {
+  max-width: 200px;
+
+  > .tooltip-inner {
+    text-align: left;
+    background-color: #428bca;
+    border: 1px solid #357ebd;
+    color: #ffffff;
+
+    ul {
+      padding-left: 25px;
+      margin-bottom: 0px;
+    }
+  }
+
+  > .tooltip-arrow {
+    border-right-color: #357ebd;
+  }
+}

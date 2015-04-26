@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  age_group_id: MyInteger
+  asa_grade_id: MyInteger
+  reason_id: MyInteger
+  surgery_id: MyInteger
+  recommendation: MyInteger
+
+two:
+  age_group_id: MyInteger
+  asa_grade_id: MyInteger
+  reason_id: MyInteger
+  surgery_id: MyInteger
+  recommendation: MyInteger

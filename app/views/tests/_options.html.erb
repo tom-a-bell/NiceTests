@@ -5,21 +5,17 @@
 <%= simple_form_for @patient, url: { action: 'results' }, html: { class: 'form-horizontal' } do |form| %>
 
 <div class="row">
-    <%= form.association :age_group, as: :radio_buttons, label: 'Age', :label_method => lambda { |item| "#{item.name}".html_safe } %>
-    <%= form.association :asa_grade, as: :radio_buttons, label: 'ASA Grade' %>
+    <%= form.association :age_group, as: :radio_buttons_with_tooltips,
+                         label: 'Age', :label_method => lambda { |item| "#{item.name}".html_safe } %>
+    <%= form.association :asa_grade, as: :radio_buttons_with_tooltips,
+                         label: 'ASA Grade' %>
+    <%= form.association :reason, as: :check_boxes_with_tooltips, include_hidden: false,
+                         label: 'Reason for ASA Grade' %>
 </div>
 
 <div class="row">
     <%= render 'surgery' %>
-    <%= form.association :reason, as: :check_boxes, label: 'Reason for<br/>ASA Grade'.html_safe %>
-</div>
-
-<div class="row">
-    <div class="form-group col-sm-6">
-        <div class="col-sm-offset-3 col-sm-9">
-            <%= form.button :submit, 'Search', class: 'btn-primary' %>
-        </div>
-    </div>
+    <%= render 'submit', form: form %>
 </div>
 
 <% end %>
