@@ -8,7 +8,7 @@ class TestsController < ApplicationController
   def results
     if patient_criteria_are_invalid?
       flash[:error] = 'Please select options for all patient criteria.'
-      redirect_to :back
+      redirect_to action: 'index'
       return
     end
 
@@ -35,7 +35,7 @@ class TestsController < ApplicationController
   end
 
   def patient_criteria_are_invalid?
-    patient_criteria.nil? || patient_criteria.length < 4 || patient_criteria.values.include?(nil)
+    params[:patient].nil? or patient_criteria.length < 4 or patient_criteria.values.include?(nil)
   end
 
   def check_reasons_for_asa_grade

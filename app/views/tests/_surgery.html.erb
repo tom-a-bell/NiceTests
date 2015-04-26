@@ -18,7 +18,7 @@
             optionsText: 'name'">
             </select>
         </div>
-        <!-- ko if: selectedOperation -->
+        <!-- ko if: selectedOperation() && selectedOperation().surgery_id -->
         <input type="hidden" name="patient[surgery_id]" data-bind="attr: { value: selectedOperation().surgery_id }">
         <input type="hidden" name="specialty_id" data-bind="attr: { value: selectedSpecialty().id }">
         <input type="hidden" name="operation_id" data-bind="attr: { value: selectedOperation().id }">
