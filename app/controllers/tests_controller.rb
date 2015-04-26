@@ -6,15 +6,13 @@ class TestsController < ApplicationController
   end
 
   def results
-    patient_criteria = params[:patient]
-
-    if patient_criteria_are_invalid?(patient_criteria)
+    if patient_criteria_are_invalid?
       flash[:error] = 'Please select options for all patient criteria.'
       redirect_to :back
       return
     end
 
-    check_asa_grade_and_reasons(patient_criteria)
+    check_reasons_for_asa_grade
 
     reason_ids = patient_criteria[:reason_id]
     specialty_id = params[:specialty_id]
@@ -31,12 +29,17 @@ class TestsController < ApplicationController
     @previous_criteria = { reason_ids: reason_ids, specialty_id: specialty_id, operation_id: operation_id }
   end
 
-  def patient_criteria_are_invalid?(criteria)
-    criteria.nil? || criteria.length < 4 || criteria.values.include?(nil)
+  private
+  def patient_criteria
+    params.require(:patient).permit(:age_group_id, :asa_grade_id, :surgery_id, :reason_id => [])
   end
 
-  def check_asa_grade_and_reasons(patient_criteria)
-    if patient_criteria[:reason_id].nil? or patient_criteria[:reason_id].empty? or patient_criteria[:asa_grade_id] == '1'
+  def patient_criteria_are_invalid?
+    patient_criteria.nil? || patient_criteria.length < 4 || patient_criteria.values.include?(nil)
+  end
+
+  def check_reasons_for_asa_grade
+    if patient_criteria[:reason_id].nil? or patient_criteria[:reason_id].empty?
       patient_criteria[:reason_id] = '1'
     end
   end
