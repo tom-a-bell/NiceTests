@@ -1,6 +1,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore binstubs created by bundler.
+/bin
+
 # Ignore npm installed Node.js packages.
 /node_modules
 
