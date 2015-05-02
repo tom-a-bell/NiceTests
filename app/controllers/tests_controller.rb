@@ -24,6 +24,9 @@ class TestsController < ApplicationController
     @recommended_tests = @matching_patients.where(recommendation: 1).flat_map { |patient| patient.tests }.uniq
     @optional_tests    = @matching_patients.where(recommendation: 2).flat_map { |patient| patient.tests }.uniq
     @additional_tests  = @matching_operation.tests
+
+    # Do not duplicate recommended tests in the list of additional or optional tests.
+    @additional_tests -= @recommended_tests
     @optional_tests   -= @recommended_tests
 
     @patient = @matching_patients.first

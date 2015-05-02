@@ -21,17 +21,23 @@ grade_4 = AsaGrade.create(name: '4', description: 'A patient with <em>severe</em
 ### Reasons for ASA Grade ###
 
 none = Reason.create(name: 'None')
-cardiovascular = Reason.create(name: 'Cardiovascular', description: 'Conditions include:<ul>
-<li>Angina</li>
-<li>Hypertension</li>
-<li>Diabetes</li>
-<li>Prior coronary revascularisation</li></ul>')
-respiratory = Reason.create(name: 'Respiratory', description: 'Conditions include:<ul>
-<li>COAD/COPD</li>
-<li>Asthma</li></ul>')
-renal = Reason.create(name: 'Renal', description: 'Conditions include:<ul>
-<li>Elevated creatinine</li>
-<li>Dialysis</li></ul>')
+cardiovascular = Reason.create(name: 'Cardiovascular', description: 'Conditions include:
+<ul>
+  <li>Angina</li>
+  <li>Hypertension</li>
+  <li>Diabetes</li>
+  <li>Prior coronary revascularisation</li>
+</ul>')
+respiratory = Reason.create(name: 'Respiratory', description: 'Conditions include:
+<ul>
+  <li>COAD/COPD</li>
+  <li>Asthma</li>
+</ul>')
+renal = Reason.create(name: 'Renal', description: 'Conditions include:
+<ul>
+  <li>Elevated creatinine</li>
+  <li>Dialysis</li>
+</ul>')
 
 
 ### Surgical Grades ###
@@ -74,7 +80,6 @@ lung  = Test.create(name: 'Lung function', description: 'Peak expiratory flow ra
 lfts = Test.create(name: 'LFTs', description: 'Liver function tests')
 tfts = Test.create(name: 'TFTs', description: 'Thyroid function tests')
 bone = Test.create(name: 'Bone profile and PTH', description: 'Parathyroid hormone test')
-ues  = Test.create(name: 'U&Es', description: 'Urea and electrolytes test')
 
 
 ### Minor Surgery ###
@@ -857,7 +862,7 @@ Operation.create(name: "Salpingectomy", description: '', surgery: intermediate, 
 Operation.create(name: "Bilateral salpingo-oophrectomy (BSO)", description: '', surgery: major, surgical_specialties: [gynae], tests: [])
 Operation.create(name: "Caesarean section", description: '', surgery: major, surgical_specialties: [gynae], tests: [])
 Operation.create(name: "Resuturing of abdomen", description: '', surgery: intermediate, surgical_specialties: [general, plastic, vascular, gynae], tests: [])
-Operation.create(name: "Cystoscopy", description: '', surgery: minor, surgical_specialties: [urology, gynae], tests: [ues])
+Operation.create(name: "Cystoscopy", description: '', surgery: minor, surgical_specialties: [urology, gynae], tests: [renfn])
 Operation.create(name: "Thrombectomy of arteriovenous fistula", description: '', surgery: major, surgical_specialties: [vascular], tests: [])
 Operation.create(name: "Ovarian Cystectomy", description: '', surgery: intermediate, surgical_specialties: [gynae], tests: [])
 Operation.create(name: "Dilatation and curettage", description: '', surgery: minor, surgical_specialties: [gynae], tests: [])
@@ -1121,35 +1126,35 @@ Operation.create(name: "Tibial locking nail removal", description: '', surgery: 
 Operation.create(name: "Exploration of toe", description: '', surgery: minor, surgical_specialties: [ortho, plastic], tests: [])
 Operation.create(name: "D.I.P fusion toe", description: '', surgery: intermediate, surgical_specialties: [ortho, plastic], tests: [])
 Operation.create(name: "Drainage perianal abscess", description: '', surgery: minor, surgical_specialties: [general], tests: [])
-Operation.create(name: "Reimplantation of ureter", description: '', surgery: major, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Exploration of urinary sphincter", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
+Operation.create(name: "Reimplantation of ureter", description: '', surgery: major, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Exploration of urinary sphincter", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
 Operation.create(name: "Suprapubic sling operation", description: '', surgery: major, surgical_specialties: [urology], tests: [])
-Operation.create(name: "Bladder biopsy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Macroplastique of bladder", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
+Operation.create(name: "Bladder biopsy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Macroplastique of bladder", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
 Operation.create(name: "Suprapubic catheter insertion", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [])
 Operation.create(name: "Meatotomy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [])
-Operation.create(name: "Ureteric meatotomy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoscopy", description: '', surgery: minor, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoscopy and biopsy", description: '', surgery: minor, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoscopy and retrograde pyelogram", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoscopy and urethral dilatation", description: '', surgery: minor, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoscopy and ureteric dilatation", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoscopy and ureterotomy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Insertion of JJ stent", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoscopy and removal of JJ stent", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystourethroscopy", description: '', surgery: minor, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystourethrotomy", description: '', surgery: minor, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Endourethrotomy", description: '', surgery: minor, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Urethral dilatation", description: '', surgery: minor, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoscopy and meatal dilatation", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Ureteroscopy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystodiathermy", description: '', surgery: minor, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Flexible cystoscopy", description: '', surgery: minor, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystolithotomy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
+Operation.create(name: "Ureteric meatotomy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoscopy", description: '', surgery: minor, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoscopy and biopsy", description: '', surgery: minor, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoscopy and retrograde pyelogram", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoscopy and urethral dilatation", description: '', surgery: minor, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoscopy and ureteric dilatation", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoscopy and ureterotomy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Insertion of JJ stent", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoscopy and removal of JJ stent", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystourethroscopy", description: '', surgery: minor, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystourethrotomy", description: '', surgery: minor, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Endourethrotomy", description: '', surgery: minor, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Urethral dilatation", description: '', surgery: minor, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoscopy and meatal dilatation", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Ureteroscopy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystodiathermy", description: '', surgery: minor, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Flexible cystoscopy", description: '', surgery: minor, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystolithotomy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
 Operation.create(name: "Meatoplasty", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [])
-Operation.create(name: "Lithalopaxy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Ureterectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoscopy and retrograde studies", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
+Operation.create(name: "Lithalopaxy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Ureterectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoscopy and retrograde studies", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
 Operation.create(name: "Orchidectomy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [])
 Operation.create(name: "Orchidectomy and testicular prosthesis", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [])
 Operation.create(name: "Testicular biopsy", description: '', surgery: minor, surgical_specialties: [urology], tests: [])
@@ -1160,8 +1165,8 @@ Operation.create(name: "Epididyostomy with vasography", description: '', surgery
 Operation.create(name: "Circumcision", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [])
 Operation.create(name: "Dorsal slit", description: '', surgery: minor, surgical_specialties: [urology], tests: [])
 Operation.create(name: "Orchidopexy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [])
-Operation.create(name: "Nesbit's Procedure", description: '', surgery: major, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Urethroplasty", description: '', surgery: major, surgical_specialties: [urology], tests: [ues])
+Operation.create(name: "Nesbit's Procedure", description: '', surgery: major, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Urethroplasty", description: '', surgery: major, surgical_specialties: [urology], tests: [renfn])
 Operation.create(name: "Repair of hydrocele", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [])
 Operation.create(name: "Reduction of priapism injection", description: '', surgery: minor, surgical_specialties: [urology], tests: [])
 Operation.create(name: "Incision and drainage of scrotal abscess", description: '', surgery: minor, surgical_specialties: [urology], tests: [])
@@ -1169,23 +1174,23 @@ Operation.create(name: "Division of preputial adhesions", description: '', surge
 Operation.create(name: "Epididymectomy", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [])
 Operation.create(name: "Tension free vaginal tape (TVT)", description: '', surgery: intermediate, surgical_specialties: [urology, gynae], tests: [])
 Operation.create(name: "Exploration of groin", description: '', surgery: minor, surgical_specialties: [urology], tests: [])
-Operation.create(name: "Nephrectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Partial Nephrectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Nephroureterectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Nephrolithotomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Transurethral resection of bladder neck", description: '', surgery: major, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Partial cystectomy", description: '', surgery: major, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Total cystectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Ileal conduit", description: '', surgery: complex, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Radical cystectomy/urethrectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [ues])
+Operation.create(name: "Nephrectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Partial Nephrectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Nephroureterectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Nephrolithotomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Transurethral resection of bladder neck", description: '', surgery: major, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Partial cystectomy", description: '', surgery: major, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Total cystectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Ileal conduit", description: '', surgery: complex, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Radical cystectomy/urethrectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [renfn])
 Operation.create(name: "Repair of vesico-vaginal fistula", description: '', surgery: major, surgical_specialties: [urology], tests: [])
 Operation.create(name: "Removal of Stamey suture", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [])
-Operation.create(name: "Bladder of diverticulectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoplasty", description: '', surgery: major, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Cystoplasty (Clam)", description: '', surgery: major, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Pelvic ureteric junction (PUJ) repair", description: '', surgery: major, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Bladder neck incision", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [ues])
-Operation.create(name: "Transurethral resection of bladder tumour (TURBT)", description: '', surgery: major, surgical_specialties: [urology], tests: [ues])
+Operation.create(name: "Bladder of diverticulectomy", description: '', surgery: complex, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoplasty", description: '', surgery: major, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Cystoplasty (Clam)", description: '', surgery: major, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Pelvic ureteric junction (PUJ) repair", description: '', surgery: major, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Bladder neck incision", description: '', surgery: intermediate, surgical_specialties: [urology], tests: [renfn])
+Operation.create(name: "Transurethral resection of bladder tumour (TURBT)", description: '', surgery: major, surgical_specialties: [urology], tests: [renfn])
 Operation.create(name: "Reduction mammoplasty", description: '', surgery: major, surgical_specialties: [plastic, general], tests: [])
 Operation.create(name: "Mastopexy", description: '', surgery: major, surgical_specialties: [plastic, general], tests: [])
 Operation.create(name: "Capsulotomy of breast", description: '', surgery: intermediate, surgical_specialties: [plastic, general], tests: [])
