@@ -46,8 +46,14 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+# Use RSpec and Cucumber for BDD
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'cucumber-rails', require: false
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'selenium-webdriver'
+end
 
 # Use Simple Form for rendering forms
 gem 'simple_form'
